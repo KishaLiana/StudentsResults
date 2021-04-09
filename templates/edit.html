@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+  
+<!------ Include the above in your HEAD tag ---------->
+{% if messages %}
+                    
+    <div class="inputContainer">
+    {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">{{ message|safe }}</div>
+    {% endfor %}
+    </div>
+
+{% endif %}
+<div class="container">
+            <form class="form-horizontal" method="POST" action="" role="form">
+                {% csrf_token %} 
+                <h2>Edit Student Results</h2>
+                <div class="form-group">
+                    <label for="firstName" class="col-sm-3 control-label">Student Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="namer" id="firstName" placeholder="{{ student.name }}" value="{{ student.name }}" required class="form-control" autofocus>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lastName" class="col-sm-3 control-label">Registration Number</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="regnor" id="lastName" placeholder="{{ student.regno }}"  value="{{ student.regno }}" required class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="col-sm-3 control-label">Course Unit</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="courseunitr" id="lastName" placeholder="{{ student.courseunit }}" value="{{ student.courseunit }}" required class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="col-sm-3 control-label">Marks Obtained</label>
+                    <div class="col-sm-9">
+                        <input type="number" name="markr" id="lastName" placeholder="{{ student.mark }}" value="{{ student.mark }}" required class="form-control" autofocus>
+                    </div>
+                </div>
+                <button type="submit" name="update" class="btn btn-secondary btn-block">Update</button>
+            </form> <!-- /form -->
+        </div> <!-- ./container -->
+
+{% endblock content %}

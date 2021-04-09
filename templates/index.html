@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+  
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+            <form class="form-horizontal" method="POST" action="{% url 'addstudent' %}" role="form">
+                {% csrf_token %} 
+                <h2>Student Results</h2>
+                <div class="form-group">
+                    <label for="firstName" class="col-sm-3 control-label">Student Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="Name" id="firstName" required placeholder="Student Name" class="form-control" autofocus>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lastName" class="col-sm-3 control-label">Registration Number</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="Regno" id="lastName" required placeholder="Reg. Number" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="col-sm-3 control-label">Course Unit</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="Courseunit" required id="lastName" placeholder="Course Unit" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="col-sm-3 control-label">Marks </label>
+                    <div class="col-sm-9">
+                        <input type="number" name="Mark" required id="lastName" placeholder="Marks" class="form-control" autofocus>
+                    </div>
+                </div>
+                <button type="submit" name="register" class="btn btn-primary btn-block">Register</button>
+            </form> <!-- /form -->
+        </div> <!-- ./container -->
+
+{% endblock content %}
